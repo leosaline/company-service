@@ -24,7 +24,7 @@ public class CompanyController {
 	
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Return list of companies") })
 	@RequestMapping(value = "/companies", method = RequestMethod.GET, produces = "application/json")
-	@CrossOrigin(origins = "http://localhost:8080")
+	@CrossOrigin(origins = {"http://localhost:8080", " http://natonfrontend:8080"})
 	@ResponseBody
 	public ResponseEntity<Collection<Company>> listProducts() {
 		return ResponseEntity.ok((Collection<Company>)this.repo.findAll());
