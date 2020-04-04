@@ -1,6 +1,7 @@
 package com.saline.naton.controller;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +37,11 @@ public class CompanyController {
 	@CrossOrigin(origins = {"http://localhost:8080", " http://natonfrontend:8080"})
 	@ResponseBody
 	public ResponseEntity<Company> companyById(@PathVariable Long id) {
-		return ResponseEntity.ok(this.repo.findById(id).get());
+		Optional<Company> optCompany = this.repo.findById(id);
+		if(optCompany.isPresent())
+			return ResponseEntity.ok(optCompany.get());
+		else
+			return ResponseEntity.ok(new Company());
 	}	
 
 }
