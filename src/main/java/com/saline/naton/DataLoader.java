@@ -25,6 +25,7 @@ public class DataLoader implements ApplicationRunner{
 	    	company.setName("Natura");
 	    	company.setEmail("natura@natura.com");
 	    	company.setTelephone(111111L);
+	    	company.setComment("primeiro natura");
 	        repo.save(company);
 	        
 	    	company = new Company();
@@ -33,6 +34,7 @@ public class DataLoader implements ApplicationRunner{
 	    	company.setName("Avon");
 	    	company.setEmail("avon@avon.com");
 	    	company.setTelephone(222222L);
+	    	company.setComment("primeiro avon");
 	        repo.save(company);
 	        
 	    	company = new Company();
@@ -41,6 +43,7 @@ public class DataLoader implements ApplicationRunner{
 	    	company.setName("Jequiti");
 	    	company.setEmail("jequiti@jequiti.com");
 	    	company.setTelephone(333333L);
+	    	company.setComment("primeiro jequiti");
 	        repo.save(company);
 	    }
 }
