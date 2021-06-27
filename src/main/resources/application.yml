@@ -1,22 +1,13 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgres-service.naton:5432/naton?useSSL=false
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://naton-mysql.mysql:3306/companyowner
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
   jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
     show-sql: true
-    hibernate:
-      ddl-auto: update
-    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
-    properties:
-      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
-      hibernate.temp.use_jdbc_metadata_defaults: false
-  activemq:
-    broker-url: tcp://activemq.activemq:61616
-    user: admin
-    password: admin
-    packages:
-      trust-all: true
-
+    database: mysql
 server:
   port: 9003
