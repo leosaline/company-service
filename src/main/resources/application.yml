@@ -1,4 +1,7 @@
 spring:
+  config:
+        activate:
+            on-profile: default
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://naton-mysql.mysql:3306/companyowner
@@ -11,3 +14,16 @@ spring:
     database: mysql
 server:
   port: 9003
+  
+---  
+spring:
+    config:
+        activate:
+            on-profile: dev
+    datasource:
+        url: jdbc:h2:./test;INIT=CREATE SCHEMA IF NOT EXISTS COMPANYOWNER;MODE=MySQL;
+        username: sa
+        password:
+        driverClassName: org.h2.Driver
+hibernate.dialect: org.hibernate.dialect.H2Dialect
+hibernate.hbm2ddl.auto: create-drop 

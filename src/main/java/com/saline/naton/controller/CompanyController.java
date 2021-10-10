@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -26,6 +27,7 @@ public class CompanyController {
 	private CompanyRepository repo;
 
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Return list of companies") })
+	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping(value = "/companies", produces = "application/json")
 	@ResponseBody
 	public ResponseEntity<Collection<Company>> listProducts() {
@@ -33,6 +35,7 @@ public class CompanyController {
 	}
 
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Return Company by ID") })
+	@CrossOrigin(origins = "http://localhost:8080")
 	@GetMapping(value = "/company/{id}", produces = "application/json")
 	@ResponseBody
 	public ResponseEntity<Company> companyById(@PathVariable Long id) {
@@ -44,6 +47,7 @@ public class CompanyController {
 	}
 
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Update Company") })
+	@CrossOrigin(origins = "http://localhost:8080")
 	@PutMapping(value = "/company/{id}", produces = "application/json", consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ResponseEntity<Company> updateCompany(@RequestBody Company company) {
