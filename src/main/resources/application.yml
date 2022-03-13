@@ -1,21 +1,26 @@
+server:
+  port: 9003
+springdoc:
+  swagger-ui:
+    path=/swagger-ui.html
+
+---
 spring:
   config:
         activate:
             on-profile: default
   datasource:
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://naton-mysql.mysql:3306/companyowner
-    username: ${MYSQL_USER}
-    password: ${MYSQL_PASSWORD}
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/naton
+    username: postgres
+    password: postgres
   jpa:
-    hibernate.ddl-auto: update
+    hibernate.ddl-auto: create
     generate-ddl: true
     show-sql: true
-    database: mysql
-server:
-  port: 9003
-  
----  
+    database: postgresql
+
+---
 spring:
     config:
         activate:
@@ -25,5 +30,6 @@ spring:
         username: sa
         password:
         driverClassName: org.h2.Driver
-hibernate.dialect: org.hibernate.dialect.H2Dialect
-hibernate.hbm2ddl.auto: create-drop 
+    jpa:
+        hibernate.dialect: org.hibernate.dialect.H2Dialect
+        hibernate.hbm2ddl.auto: create-drop

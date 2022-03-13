@@ -1,9 +1,10 @@
 package com.saline.naton.repository;
 
-import org.springframework.data.repository.CrudRepository;
-
 import com.saline.naton.entity.Company;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface CompanyRepository extends CrudRepository<Company, Long> {
+@Repository
+public interface CompanyRepository extends JpaRepository<Company, Long> {
 
 }
