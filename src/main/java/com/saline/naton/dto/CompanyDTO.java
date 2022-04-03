@@ -78,9 +78,10 @@ public class CompanyDTO {
         this.listAddress = listAddress;
     }
 
-    public CompanyDTO(){}
+    public CompanyDTO() {
+    }
 
-    private CompanyDTO(CompanyDTOBuilder builder){
+    private CompanyDTO(CompanyDTOBuilder builder) {
         this.id = builder.id;
         this.name = builder.name;
         this.email = builder.email;
@@ -92,8 +93,8 @@ public class CompanyDTO {
     }
 
     public static class CompanyDTOBuilder {
-        private Long id;
-        private String name;
+        private final Long id;
+        private final String name;
         private String email;
         private Long telephone;
         private Boolean active;

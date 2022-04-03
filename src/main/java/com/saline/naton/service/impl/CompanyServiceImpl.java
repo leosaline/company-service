@@ -6,10 +6,11 @@ import com.saline.naton.mapper.Mapper;
 import com.saline.naton.repository.CompanyRepository;
 import com.saline.naton.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
 public class CompanyServiceImpl implements CompanyService {
     @Autowired
     CompanyRepository companyRepository;
@@ -22,8 +23,8 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public Optional<CompanyDTO> findById(Long id) {
-        return Optional.of(mapper.toDto(companyRepository.findById(id).orElseThrow(CompanyNotFoundException::new)));
+    public CompanyDTO findById(Long id) {
+        return mapper.toDto(companyRepository.findById(id).orElseThrow(CompanyNotFoundException::new));
     }
 
     @Override
